@@ -25,7 +25,7 @@ _update_config_path() {
 }
 
 if [ -z "$IMAGE_NAME" ]; then
-  IMAGE_NAME=tvial/docker-mailserver:latest
+  IMAGE_NAME=germainmasse/docker-mailserver:latest
 fi
 
 _inspect() {
@@ -48,7 +48,7 @@ _usage() {
 OPTIONS:
 
   -i IMAGE_NAME     The name of the docker-mailserver image, by default
-                    'tvial/docker-mailserver:latest'.
+                    'germainmasse/docker-mailserver:latest'.
   -c CONTAINER_NAME The name of the running container.
 
   -p PATH           config folder path (default: $(pwd)/config)
