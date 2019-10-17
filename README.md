@@ -358,6 +358,14 @@ Set the message size limit for all users. If set to zero, the size will be unlim
   - ignore => Ignore the failure of this test. Allow other tests to complete. Repeat this test the next time the client connects. This option is useful for testing and collecting statistics without blocking mail.
 
 
+##### DOVECOT_MAILBOX_FORMAT
+
+  - **maildir** => uses very common Maildir format, one file contains one message
+  - sdbox => uses Dovecot high-performance mailbox format, one file contains one message
+  - mdbox ==> uses Dovecot high-performance mailbox format, multiple messages per file and multiple files per box
+
+For more details, please refer to [Dovecot Documentation](https://wiki2.dovecot.org/MailboxFormat).
+
 ## Reports
 
 ##### PFLOGSUMM_TRIGGER
