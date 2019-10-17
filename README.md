@@ -1,6 +1,6 @@
 # docker-mailserver
 
-[![Build Status](https://travis-ci.org/tomav/docker-mailserver.svg?branch=master)](https://travis-ci.org/tomav/docker-mailserver) [![Docker Pulls](https://img.shields.io/docker/pulls/tvial/docker-mailserver.svg)](https://hub.docker.com/r/tvial/docker-mailserver/) [![Docker layers](https://images.microbadger.com/badges/image/tvial/docker-mailserver.svg)](https://microbadger.com/images/tvial/docker-mailserver) [![Github Stars](https://img.shields.io/github/stars/tomav/docker-mailserver.svg?label=github%20%E2%98%85)](https://github.com/tomav/docker-mailserver/) [![Github Stars](https://img.shields.io/github/contributors/tomav/docker-mailserver.svg)](https://github.com/tomav/docker-mailserver/) [![Github Forks](https://img.shields.io/github/forks/tomav/docker-mailserver.svg?label=github%20forks)](https://github.com/tomav/docker-mailserver/) [![Gitter](https://img.shields.io/gitter/room/tomav/docker-mailserver.svg)](https://gitter.im/tomav/docker-mailserver)
+[![Build Status](https://travis-ci.org/gmasse/docker-mailserver.svg?branch=dev)](https://travis-ci.org/gmasse/docker-mailserver) [![Docker Pulls](https://img.shields.io/docker/pulls/germainmasse/docker-mailserver.svg)](https://hub.docker.com/r/germainmasse/docker-mailserver) [![Docker layers](https://images.microbadger.com/badges/image/germainmasse/docker-mailserver.svg)](https://microbadger.com/images/germainmasse/docker-mailserver) [![Gitter](https://img.shields.io/gitter/room/tomav/docker-mailserver.svg)](https://gitter.im/tomav/docker-mailserver)
 
 
 A fullstack but simple mail server (smtp, imap, antispam, antivirus...).
@@ -26,8 +26,8 @@ Includes:
 - [LetsEncrypt](https://letsencrypt.org/) and self-signed certificates
 - [Setup script](https://github.com/tomav/docker-mailserver/wiki/Setup-docker-mailserver-using-the-script-setup.sh) to easily configure and maintain your mailserver
 - persistent data and state (but think about backups!)
-- [Integration tests](https://travis-ci.org/tomav/docker-mailserver)
-- [Automated builds on docker hub](https://hub.docker.com/r/tvial/docker-mailserver/)
+- [Integration tests](https://travis-ci.org/gmasse/docker-mailserver)
+- [Automated builds on docker hub](https://hub.docker.com/r/germainmasse/docker-mailserver/)
 
 Why I created this image: [Simple mail server with Docker](http://tvi.al/simple-mail-server-with-docker/)
 
@@ -49,17 +49,17 @@ Minimum:
 
 #### Get latest image
 
-    docker pull tvial/docker-mailserver:latest
+    docker pull germainmasse/docker-mailserver:dev
 
 #### Get the tools
 
 Download the docker-compose.yml, the .env and the setup.sh files:
 
-    curl -o setup.sh https://raw.githubusercontent.com/tomav/docker-mailserver/master/setup.sh; chmod a+x ./setup.sh
+    curl -o setup.sh https://raw.githubusercontent.com/gmasse/docker-mailserver/dev/setup.sh; chmod a+x ./setup.sh
 
-    curl -o docker-compose.yml https://raw.githubusercontent.com/tomav/docker-mailserver/master/docker-compose.yml.dist
+    curl -o docker-compose.yml https://raw.githubusercontent.com/gmasse/docker-mailserver/dev/docker-compose.yml.dist
 
-    curl -o .env https://raw.githubusercontent.com/tomav/docker-mailserver/master/.env.dist
+    curl -o .env https://raw.githubusercontent.com/gmasse/docker-mailserver/dev/.env.dist
 
 #### Create a docker-compose environment
 
@@ -87,7 +87,7 @@ Now the keys are generated, you can configure your DNS server by just pasting th
 #### Restart and update the container
 
     docker-compose down
-    docker pull tvial/docker-mailserver:latest
+    docker pull germainmasse/docker-mailserver:dev
     docker-compose up -d mail
 
 You're done!
@@ -100,7 +100,7 @@ If you got any problems with SPF and/or forwarding mails, give [SRS](https://git
 
 #### For informational purposes:
 
-Your config folder will be mounted in `/tmp/docker-mailserver/`. To understand how things work on boot, please have a look at [start-mailserver.sh](https://github.com/tomav/docker-mailserver/blob/master/target/start-mailserver.sh)
+Your config folder will be mounted in `/tmp/docker-mailserver/`. To understand how things work on boot, please have a look at [start-mailserver.sh](https://github.com/germainmasse/docker-mailserver/blob/dev/target/start-mailserver.sh)
 
 `restart: always` ensures that the mail server container (and ELK container when using the mail server together with ELK stack) is automatically restarted by Docker in cases like a Docker service or host restart or container exit.
 
@@ -122,7 +122,7 @@ version: '2'
 
 services:
   mail:
-    image: tvial/docker-mailserver:latest
+    image: germainmasse/docker-mailserver:dev
     hostname: mail
     domainname: domain.com
     container_name: mail
@@ -163,7 +163,7 @@ version: '2'
 
 services:
   mail:
-    image: tvial/docker-mailserver:latest
+    image: germainmasse/docker-mailserver:dev
     hostname: mail
     domainname: domain.com
     container_name: mail
@@ -218,7 +218,7 @@ volumes:
 
 # Environment variables
 
-Please check [how the container starts](https://github.com/tomav/docker-mailserver/blob/master/target/start-mailserver.sh) to understand what's expected. Also if an option doesn't work as documented here, check if you are running the latest image!
+Please check [how the container starts](https://github.com/germainmasse/docker-mailserver/blob/dev/target/start-mailserver.sh) to understand what's expected. Also if an option doesn't work as documented here, check if you are running the latest image!
 
 Value in **bold** is the default value.
 
