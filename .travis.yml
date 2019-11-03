@@ -18,3 +18,9 @@ script:
 - make generate-accounts run generate-accounts-after-run fixtures tests
 after_script:
 - make clean
+after_success:
+  - if [[ "$TRAVIS_BRANCH" == "dev" ]]; then
+      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
+      docker image tag $DOCKER_IMAGE:testing $DOCKER_IMAGE:dev ;
+      docker push $DOCKER_IMAGE:dev ;
+    fi
