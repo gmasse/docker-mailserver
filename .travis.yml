@@ -1,6 +1,6 @@
 branches:
-  except:
-  - donttestme
+  only:
+  - dev
 language: bash
 sudo: required
 env:
