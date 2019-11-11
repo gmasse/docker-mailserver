@@ -3,12 +3,12 @@ FROM debian:stretch-slim
 ARG VCS_REF
 ARG VCS_VERSION
 
-LABEL maintainer="Thomas VIAL"  \
+LABEL maintainer="Germain MASSE" \
     org.label-schema.name="docker-mailserver" \
     org.label-schema.description="A fullstack but simple mailserver (smtp, imap, antispam, antivirus, ssl...)" \
-    org.label-schema.url="https://github.com/tomav/docker-mailserver" \
+    org.label-schema.url="https://github.com/gmasse/docker-mailserver" \
     org.label-schema.vcs-ref=$VCS_REF \
-    org.label-schema.vcs-url="https://github.com/tomav/docker-mailserver" \
+    org.label-schema.vcs-url="https://github.com/gmasse/docker-mailserver" \
     org.label-schema.version=$VCS_VERSION \
     org.label-schema.schema-version="1.0"
 
