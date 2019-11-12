@@ -1,13 +1,11 @@
+filebeat.inputs:
+- type: log
+  paths:
+  - /var/log/mail/mail.log
+  fields:
+    type: syslog
+
 output:
   logstash:
-    enabled: true
     hosts:
       - $ELK_HOST:$ELK_PORT
-
-filebeat:
-  prospectors:
-    -
-      paths:
-        - /var/log/mail/mail.log
-      document_type: syslog
-
